@@ -3,25 +3,49 @@ module.exports = {
     select:function(columns,tableName,conditions){
         return new Promise(function(resolve, reject) {
             var result = getSelectQuery(columns,tableName,conditions);
-            resolve(result);
+            db.query(result,function(err,results,fields){
+				if (err) {
+                    reject(err);
+                    throw err;
+                }
+                resolve(results);
+            });
         });
     },
     insert:function(columnsAndValues,tableName){
         return new Promise(function(resolve, reject) {
             var result = getInsertQuery(tableName,columnsAndValues);
-            resolve(result);
+            db.query(result,function(err,results,fields){
+				if (err) {
+                    reject(err);
+                    throw err;
+                }
+                resolve(results);
+            });
         });
     },
     update:function(columns,tableName,conditions){
         return new Promise(function(resolve, reject) {
             var result = getUpdateQuery(columns,tableName,conditions);
-            resolve(result);
+            db.query(result,function(err,results,fields){
+				if (err) {
+                    reject(err);
+                    throw err;
+                }
+                resolve(results);
+            });
         });
     },
     delete:function(tableName,conditions){
         return new Promise(function(resolve, reject) {
             var result = getDeleteQuery(tableName,conditions);
-            resolve(result);
+            db.query(result,function(err,results,fields){
+				if (err) {
+                    reject(err);
+                    throw err;
+                }
+                resolve(results);
+            });
         });
     }
 }

@@ -16,19 +16,7 @@ module.exports = {
             "dataT":"data1",
             "KeyT":"Keydata1"
         }]
-        await db.select(col,"summa",where).then(function(result){
-            response.push(result);
-        });
-        await db.select(col1,"summa",where1).then(function(result){
-            response.push(result);
-        });
-        await db.insert(data,"summa").then(function(result){
-            response.push(result);
-        });
-        await db.update(where1,"summa",null).then(function(result){
-            response.push(result);
-        });
-        await db.delete("summa","data").then(function(result){
+        await db.select(col,"customer_report","1").then(function(result){
             response.push(result);
         });
         res.json(response);
